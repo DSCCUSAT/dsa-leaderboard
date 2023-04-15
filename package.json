@@ -12,6 +12,6 @@
   "dependencies": {
     "express": "^4.18.2",
     "nodemon": "^2.0.22",
-    "puppeteer": "^19.9.0"
+    "puppeteer": "17.1.3"
   }
 }
