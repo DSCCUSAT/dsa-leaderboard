@@ -38,28 +38,14 @@ app.get('/daily',(req,res)=>{
     });
 })
 
-app.get('/didthedaily/:username', (req, res)=>{
+app.get('/didthedaily/:username/:problem', (req, res)=>{
 
-    const {username} = req.params
-    const url1 = 'https://leetcode.com/problemset/all/';
+    const {username, problem} = req.params
+    //const url1 = 'https://leetcode.com/problemset/all/';
     const url2 = `https://leetcode.com/${username}/`;
     (async function scrape() {
         const d = new Date();
         let time1 = d.getTime();
-
-        const browser1 = await puppeteer.launch({ headless: true });
-        const page1 = await browser1.newPage();
-        console.log("We are scraping from " + url1 + ":");
-
-        await page1.goto(url1);
-        await a(2000)
-        let problem = await page1.evaluate(() => {
-
-            let prob = document.body.querySelector(' .truncate > a').href.split("/")[4].replaceAll("-", " ");
-            return prob;
-        });
-        console.log(problem)
-        browser1.close();
 
         const browser = await puppeteer.launch({ headless: true });
         const page = await browser.newPage();
@@ -69,7 +55,7 @@ app.get('/didthedaily/:username', (req, res)=>{
         //await a(1000)
         let recents = await page.evaluate(() => {
 
-            let prob = Array.from(document.body.querySelectorAll("a > div > .text-label-1"), el=> el.innerHTML.toLowerCase());
+            let prob = Array.from(document.body.querySelectorAll("a > div > .text-label-1"), el=> el.innerHTML.toLowerCase().replace(" ","-"));
             return prob;
         });
         console.log(recents)
