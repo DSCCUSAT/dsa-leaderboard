@@ -16,7 +16,7 @@ app.use(express.json())
 app.get('/daily',(req,res)=>{
     const url = 'https://leetcode.com/problemset/all/';
     (async function scrape() {
-        const browser = await puppeteer.launch({ headless: true });
+        const browser = await puppeteer.launch({ headless: true,args: ['--no-sandbox', '--disable-setuid-sandbox'] });
         const page = await browser.newPage();
         console.log("We are scraping from " + url + ":");
 
@@ -47,7 +47,7 @@ app.get('/didthedaily/:username/:problem', (req, res)=>{
         const d = new Date();
         let time1 = d.getTime();
 
-        const browser = await puppeteer.launch({ headless: true });
+        const browser = await puppeteer.launch({ headless: true,args: ['--no-sandbox', '--disable-setuid-sandbox'] });
         const page = await browser.newPage();
         console.log("We are scraping from " + url2 + ":");
 
