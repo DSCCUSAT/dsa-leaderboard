@@ -21,7 +21,7 @@ app.get('/daily',(req,res)=>{
         console.log("We are scraping from " + url + ":");
 
         await page.goto(url);
-        await a(2000)
+        await a(5000)
         let problem = await page.evaluate(() => {
 
             let prob = document.body.querySelector(' .truncate > a').href.split("/")[4].replaceAll("-", " ");
