@@ -1,9 +1,0 @@
-version: '3'
-services:
-  web:
-    build: .
-  chrome:
-    image: "ghcr.io/puppeteer/puppeteer:latest"
-
-volumes:
-  db-data:
