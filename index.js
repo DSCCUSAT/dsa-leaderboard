@@ -78,8 +78,8 @@ app.get('/didthedaily/:username/:problem', (req, res)=>{
 })
 
 
-//app.listen(
-//    PORT,
-//    ()=> console.log(`its alive on http://localhost:${PORT}`)
-//)
+app.listen(
+    PORT,
+    ()=> console.log(`its alive on http://localhost:${PORT}`)
+)
 
