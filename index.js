@@ -18,7 +18,7 @@ app.get('/check/:username/:problem', (req, res)=>{
         const browser = await puppeteer.launch({ headless: true,args: ['--no-sandbox', '--disable-setuid-sandbox'] });
         const page = await browser.newPage();
 
-        console.log("We are scraping from " + url2 + ":");
+        //console.log("We are scraping from " + url2 + ":");
 
         await page.goto(url2);
         
@@ -27,7 +27,7 @@ app.get('/check/:username/:problem', (req, res)=>{
             return prob;
         });
         
-        console.log(recents)
+        //console.log(recents)
         browser.close();
 
         const done = recents.indexOf(problem)!=-1
