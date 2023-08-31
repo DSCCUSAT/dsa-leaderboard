@@ -13,31 +13,6 @@ const PORT = process.env.PORT || 8080;
 
 app.use(express.json())
 
-app.get('/daily',(req,res)=>{
-    const url = 'https://leetcode.com/problemset/all/';
-    (async function scrape() {
-        const browser = await puppeteer.launch({ headless: true,args: ['--no-sandbox', '--disable-setuid-sandbox'] });
-        const page = await browser.newPage();
-        console.log("We are scraping from " + url + ":");
-
-        await page.goto(url);
-        await a(2000)
-        let problem = await page.evaluate(() => {
-
-            let prob = document.body.querySelector(' .truncate > a').href.split("/")[4].replaceAll("-", " ");
-            return prob;
-        });
-        console.log(problem)
-        res.status(200).send({
-            msg:problem
-        })
-        browser.close();
-        //console.log(hrefs);
-    })().catch(function(err){
-        console.log(err);
-    });
-})
-
 app.get('/didthedaily/:username/:problem', (req, res)=>{
 
     const {username, problem} = req.params
