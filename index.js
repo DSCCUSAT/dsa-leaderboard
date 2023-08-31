@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const puppeteer = require('puppeteer');
+var cors = require('cors');
+
+app.use(cors({origin: 'http://127.0.0.1:5500'}));
 
 const PORT = process.env.PORT || 8080;
 
@@ -9,7 +12,6 @@ app.use(express.json())
 app.get('/check/:username/:problem', (req, res)=>{
 
     const {username, problem} = req.params
-
     const url2 = `https://leetcode.com/${username}/`;
 
     (async function scrape() {
@@ -18,8 +20,6 @@ app.get('/check/:username/:problem', (req, res)=>{
         const browser = await puppeteer.launch({ headless: true,args: ['--no-sandbox', '--disable-setuid-sandbox'] });
         const page = await browser.newPage();
 
-        //console.log("We are scraping from " + url2 + ":");
-
         await page.goto(url2);
         
         let recents = await page.evaluate(() => {
@@ -27,7 +27,6 @@ app.get('/check/:username/:problem', (req, res)=>{
             return prob;
         });
         
-        //console.log(recents)
         browser.close();
 
         const done = recents.indexOf(problem)!=-1
@@ -40,7 +39,7 @@ app.get('/check/:username/:problem', (req, res)=>{
             done: done,
             time: time2-time1
         })
-        //console.log(hrefs);
+
     })().catch(function(err){
         console.log(err);
     });
