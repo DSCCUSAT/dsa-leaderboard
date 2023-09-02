@@ -88,3 +88,21 @@ body {
 #update:hover {
     background-color:#4285F4; 
 }
+
+@media only screen and (max-width: 770px) and (min-width: 430px){
+    .leaderboard {
+      scale: 0.65;
+    }
+  }
+
+  @media only screen and (max-width: 430px) and (min-width: 375px){
+    .leaderboard {
+      scale: 0.45;
+    }
+  }
+
+  @media only screen and (max-width: 375px) {
+    .leaderboard {
+      scale: 0.35;
+    }
+  }

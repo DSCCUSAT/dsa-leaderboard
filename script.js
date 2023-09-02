@@ -97,53 +97,85 @@ function saveuser(username, question) {
 
 
 var l = document.getElementById("leaderboard")
-var colors = ["#4285F4", "#EA4335", "#FBBC05", "#34A853"]
-var format = {0:{name:"mishal", points:80},1:{name:"sheethal", points:72}, 2:{name:"mishal", points:2}, 3:{name:"sheethal", points:90}}
 
-for (let i in format){
-    var randomcolor = colors[(Math.floor(Math.random() * colors.length))]
-    var playerhtml = `<div class='player' style='background-color: ${randomcolor}'> \
-                <span class="name"> ${format[i].name}</span> \
-                <span class="score">${format[i].points}</span> \
-                </div>`
-    var player = document.createElement("div");
-    player.innerHTML = playerhtml
-    l.appendChild(player)
-}
+//var format = {0:{name:"mishal", points:80},1:{name:"sheethal", points:72}, 2:{name:"mishal", points:2}, 3:{name:"sheethal", points:90}}
 
 
-import 'fs'
 
-// Read the file synchronously
-const data = fs.readFileSync('usernames.js', 'utf8');
+var usernames = ["Mishal0404","user4713QR", "Nevin", "hridyaharshan", "Nandana07", "Khushi6517", "barash1311", "khdas567", "Anagas", "singhmuskan16", 
+"aadarsh_ps", "Nirmal050", "vishnu13431", "ansafraees", "mihalpalakkal", "aditripathi1357", "prince3654", "Naveen_002", "Dheerajdileep", "Jr_NewT ", 
+"EvlynEbichan ", "AioonT", "Heavenly_Ben", "Ivinej", "2getsandesh", "rimasid", "Sadhnan", "karthiksujith789", "resikeshramachandran05", 
+"Nandakishor-KV", "Najah_1_", "_treesa_george_", "anumini", "MeticulousVision", "mgnm", "aakashpr", "rahulpradeep001", "abhay-krishna", 
+"dikshas2911", "sivadasrajan", "safwanmshereef7", "shubhamk45", "the_royal_Abhi9s", "Sonakshi2125", "adijithsabu", "asciiindex", "Archa_2000", 
+"abiirram", "fidhaa_2003", "hrk2575", "nikhilakumar2003", "aswinpradeepc ", "shivangi_chaturvedi", "iamdeepakpm282", "ashwath_john", "nandana___santhosh", 
+"abhigaprasad", "avinashsinghlilotra", "eldhoabraham", "Harikri12", "Ruvais_9296", "Thrishakannan", "nabeelnazeer", "Akshaykr008", "rabeeh_ta", "kalpanaroy1712", 
+"omamaashraf1913111046", "harshedabdulla", "dakshinard3010", "Sharonsabu12", "Athi123", "Abhishek", "priyanshu__21", "Aiswarya ", "Aiswarya_4528", "Aazim_Anish", "ri5hi", 
+"niteshmishra171171171", "Abhinandgit", "ghanashyamvn", "mad_techy", "anzal", "Anzal", "Sree_Laxmi-123", "Narthana", "Sidharth", "ReVuZ", "SayakPaul", "20cs076praj ", 
+"adarshbytes", "arjunvaradiyil203", "007aswinak007", "alimanhal", "Rebin03", "Sreesayanth", "Adithyasankar_2003", "satyamsrivastava6871", "bhavyagirish3", "Nikitha_Ragesh", 
+"sharathj116", "Merin_Biju", "Gokul211468", "lucifer_sama", "sonascaria", "mehul20", "ashwinsudheer", "resikeshramachandran05", "NazneenT03", "athulya_anilkumar", "Adil9645", 
+"Anjimakp0", "hafeefapc2003", "ShriyaBala", "aswathy_linz", "Siddeque", "pejayalakshmi2003", "sweetcaro", "abhijith8176", "nlkguy", "sthejas87", "rabeeh6", "Creedz", "jeri", 
+"Sreeragpv_1729", "johnsonjoyal87", "aloysiuspattath", "parvathi_manari", "Ankan85", "Mamatha ", "shadaataj", "nandusn", "mrudulmathews", "Amal-Thilakan", "str_dolly", 
+"Malavika_CS", "gayathrireji25", "gthm", "gangamangalassery1", "kumarmukesh14", "Anandkumar_21633", "Him_123-", "thepywizard", "Dhanushpk_50", "Jeslinpjames", 
+"MdSaquibBakhshi", "Abhibav75478", "Krishnanunni_21", "potatomalik", "ithban", "gowrilekshmis", "Abna_Iqbal", "Ashkab_C", "dka001"]
 
-// Split the file content into an array of names
-const namesArray = data.split('\n');
-
-// Surround each name with double quotes and join them with commas
-const formattedNames = namesArray.map(name => `"${name}"`).join(', ');
-
-// Print the result
-console.log(formattedNames);
-
-var usernames = ["Mishal0404"]
 var questions = ["find-the-duplicate-number", "running-sum-of-1d-array","sort-colors","move-zeroes","reverse-string","valid-palindrome-ii","valid-palindrome"]
 
+
+function arrayRemove(arr, value) {
+    return arr.filter(function (geeks) {
+        return geeks != value;
+    });
+}
+
+var colors = ["#4285F4", "#EA4335", "#FBBC05", "#34A853"]
+var randomcolor = colors[(Math.floor(Math.random() * colors.length))]
+
+get(child(dbRef, `users`)).then((snapshot) => {
+  if (snapshot.exists()) {
+    for (let i in snapshot.val()){
+        var newcolors = arrayRemove(colors, randomcolor)
+        randomcolor = newcolors[(Math.floor(Math.random() * colors.length))]
+
+        var points = Object.keys(snapshot.val()[i]).length
+        var playerhtml = `<div class='player' style='background-color: ${randomcolor}'> \
+                    <span class="name"> ${i}</span> \
+                    <span class="score">${points}</span> \
+                    </div>`
+        var player = document.createElement("div");
+        player.innerHTML = playerhtml
+        l.appendChild(player)
+    }
+  } else {
+    console.log("No data available");
+  }
+}).then()
+
+
 function update(){
+    var total = usernames.length
+    var count = 0
     var url = "http://localhost:8080/check"
     for (var i in usernames){
-        for (var j in questions){
-            var newurl = url + "/" + usernames[i] + "/" + questions[j]
-            fetch(newurl).then( function(response) {return response.json()}).then(function(result){
-                if (result.done){
+        console.log(usernames[i])
+        var newurl = url+"/"+usernames[i]
+        fetch(newurl).then( function(response) {return response.json()}).then(function(result){
+            for (var j in questions){
+                var recents = result.recents.split(",")
+                if (recents.includes(questions[i])){
                     saveuser(usernames[i], questions[j])
+                    console.log("saved")
                 }
-                console.log(result)
-            }).catch(function(error){
-                console.log(error)
-            })
-        }
+            }
+            console.log(recents)
+            console.log(result)
+            count+=1
+            console.log(count,"/",total)
+        }).catch(function(error){
+            console.log(error)
+        })
+        
     }
+    
 }
 
 document.getElementById("update").addEventListener("click", update);

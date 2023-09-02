@@ -2,16 +2,15 @@ const express = require("express");
 const app = express();
 const puppeteer = require('puppeteer');
 var cors = require('cors');
-
 app.use(cors({origin: 'http://127.0.0.1:5500'}));
 
 const PORT = process.env.PORT || 8080;
 
 app.use(express.json())
 
-app.get('/check/:username/:problem', (req, res)=>{
+app.get('/check/:username', (req, res)=>{
 
-    const {username, problem} = req.params
+    const {username} = req.params
     const url2 = `https://leetcode.com/${username}/`;
 
     (async function scrape() {
@@ -28,15 +27,12 @@ app.get('/check/:username/:problem', (req, res)=>{
         });
         
         browser.close();
-
-        const done = recents.indexOf(problem)!=-1
         const d1 = new Date();
         let time2 = d1.getTime();
 
         res.status(200).send({
+            username: username,
             recents:recents.toString(),
-            prob: problem,
-            done: done,
             time: time2-time1
         })
 
@@ -44,8 +40,6 @@ app.get('/check/:username/:problem', (req, res)=>{
         console.log(err);
     });
 })
-
-
 
 
 app.listen(
