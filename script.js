@@ -112,9 +112,22 @@ for (let i in format){
 }
 
 
+import 'fs'
+
+// Read the file synchronously
+const data = fs.readFileSync('usernames.js', 'utf8');
+
+// Split the file content into an array of names
+const namesArray = data.split('\n');
+
+// Surround each name with double quotes and join them with commas
+const formattedNames = namesArray.map(name => `"${name}"`).join(', ');
+
+// Print the result
+console.log(formattedNames);
 
 var usernames = ["Mishal0404"]
-var questions = ["two-sum"]
+var questions = ["find-the-duplicate-number", "running-sum-of-1d-array","sort-colors","move-zeroes","reverse-string","valid-palindrome-ii","valid-palindrome"]
 
 function update(){
     var url = "http://localhost:8080/check"
