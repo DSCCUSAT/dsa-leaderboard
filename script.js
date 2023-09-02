@@ -148,7 +148,7 @@ get(child(dbRef, `users`)).then((snapshot) => {
   } else {
     console.log("No data available");
   }
-}).then()
+})
 
 
 function update(){
