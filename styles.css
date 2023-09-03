@@ -70,7 +70,7 @@ body {
     margin-left: 10px;
     margin-top: -5px;
   }
-  #update {
+  #update, .small {
     background-color: #34A853 ; 
     color: white; 
     border: none; 
