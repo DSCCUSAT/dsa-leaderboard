@@ -22,7 +22,7 @@ app.get('/check/:username', (req, res)=>{
         await page.goto(url2);
         
         let recents = await page.evaluate(() => {
-            let prob = Array.from(document.body.querySelectorAll("a > div > .text-label-1"), el=> el.innerHTML.toLowerCase().replace(" ","-"));
+            let prob = Array.from(document.body.querySelectorAll("a > div > .text-label-1"), el=> el.innerHTML.toLowerCase().replace(new RegExp(' ', 'g'),"-"));
             return prob;
         });
         
