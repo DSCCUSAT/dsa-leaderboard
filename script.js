@@ -182,7 +182,7 @@ function update(){
                 }
             //}
             //console.log(recents)
-            //console.log(result)
+            console.log(result)
             count+=1
             console.log(count,"/",total)
         }).catch(function(error){
