@@ -1,9 +1,9 @@
 import {initializeApp } from 'https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js'
 import { getDatabase, set, get, ref, child, push, onValue } from 'https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js'
   
-if (localStorage.getItem("admin") == "true"){
-    document.getElementById("update").style.display = "block"
-}
+//if (localStorage.getItem("admin") == "true"){
+//    document.getElementById("update").style.display = "block"
+//}
 
 const firebaseConfig = {
     apiKey: "AIzaSyC9iD6-1W67VoQORY1uc_Fssa8233loiig",
@@ -171,7 +171,7 @@ var todaysquestion = "find-the-duplicate-number"
 function update(){
     var total = usernames.length
     var count = 0
-    var url = "http://localhost:8080/check"
+    var url = "https://gdscdsa.onrender.com/check"
     for (var i in usernames){
         console.log(usernames[i])
         var newurl = url+"/"+usernames[i]
