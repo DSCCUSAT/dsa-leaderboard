@@ -108,7 +108,7 @@ function saveuser(username, question){
     updaterecent(username, question)
 }
 
-var l = document.getElementById("leaderboard")
+var l = document.getElementById("board")
 
 //var format = {0:{name:"mishal", points:80},1:{name:"sheethal", points:72}, 2:{name:"mishal", points:2}, 3:{name:"sheethal", points:90}}
 

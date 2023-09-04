@@ -6,6 +6,8 @@ body {
     background-color:#ffffff;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
 }   
 
 .footer {
@@ -57,9 +59,8 @@ body {
     font-weight: 600;
     font-size: 30px;
     background-color: #4285F4;
-    margin: 20px;
+    margin: 30px;
     margin-left: 15px;
-    margin-bottom: 30px;
     color: white;
     border-radius: 40px;
     box-shadow: 10px 10px 0px 2px #ffffff;
@@ -97,21 +98,3 @@ body {
 #update:hover {
     background-color:#4285F4; 
 }
-
-@media only screen and (max-width: 770px) and (min-width: 430px){
-    .leaderboard {
-      scale: 0.65;
-    }
-  }
-
-  @media only screen and (max-width: 430px) and (min-width: 375px){
-    .leaderboard {
-      scale: 0.45;
-    }
-  }
-
-  @media only screen and (max-width: 375px) {
-    .leaderboard {
-      scale: 0.35;
-    }
-  }
