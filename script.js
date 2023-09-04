@@ -5,6 +5,17 @@ import { getDatabase, set, get, ref, child, push, onValue } from 'https://www.gs
 //    document.getElementById("update").style.display = "block"
 //}
 
+if (window.outerWidth < 500){
+    document.body.style.zoom = "35%";
+}
+
+if (window.outerWidth < 855){
+    document.body.style.zoom = "70%"
+}
+
+
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyC9iD6-1W67VoQORY1uc_Fssa8233loiig",
     authDomain: "gdscdsa-dc74b.firebaseapp.com",
