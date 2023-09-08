@@ -41,8 +41,13 @@ app.get('/check/:username', (req, res)=>{
             const d1 = new Date();
             let time2 = d1.getTime();
             recents = Array.from(new Set(recents))
+
+            const headers = {'Content-Type':'application/json',
+                    'Access-Control-Allow-Origin':'*',
+                    'Access-Control-Allow-Methods':'POST,GET,OPTIONS'}
             res.status(200).send({
                 username: username,
+                headers: headers,
                 recents:recents.toString(),
                 time: time2-time1
             })
