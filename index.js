@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const puppeteer = require('puppeteer');
 var cors = require('cors');
-app.use(cors({origin: 'http://127.0.0.1:5501'}));
+app.use(cors({origin: ['http://127.0.0.1:5501','https://dsccusat.github.io/dsa-leaderboard']}));
 
 const { LeetCode } = require("leetcode-query");
 

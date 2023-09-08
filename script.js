@@ -186,7 +186,7 @@ function update(){
     for (var i in usernames){
         console.log(usernames[i])
         var newurl = url+"/"+usernames[i]
-        fetch(newurl,{ mode: 'no-cors'}).then( function(response) {return response.json()}).then(function(result){
+        fetch(newurl).then( function(response) {return response.json()}).then(function(result){
             //for (var j in questions){
                 var recents = result.recents.split(",")
                 var user = result.username
