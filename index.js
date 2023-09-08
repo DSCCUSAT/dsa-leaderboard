@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const puppeteer = require('puppeteer');
 var cors = require('cors');
-app.use(cors({origin: "https://dsccusat.github.io"}));
+app.use(cors({origin: "*"}));
 
 const { LeetCode } = require("leetcode-query");
 
@@ -42,12 +42,8 @@ app.get('/check/:username', (req, res)=>{
             let time2 = d1.getTime();
             recents = Array.from(new Set(recents))
 
-            const headers = {'Content-Type':'application/json',
-                    'Access-Control-Allow-Origin':'*',
-                    'Access-Control-Allow-Methods':'POST,GET,OPTIONS'}
             res.status(200).send({
                 username: username,
-                headers: headers,
                 recents:recents.toString(),
                 time: time2-time1
             })
