@@ -182,7 +182,7 @@ var todaysquestion = "find-the-duplicate-number"
 function update(){
     var total = usernames.length
     var count = 0
-    var url = "https://gdscdsa.onrender.com/check"
+    var url = "http://localhost:8080/check"
     for (var i in usernames){
         console.log(usernames[i])
         var newurl = url+"/"+usernames[i]
