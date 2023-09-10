@@ -171,7 +171,7 @@ get(child(dbRef, `users`)).then((snapshot) => {
     }
 
     document.getElementById("total").innerHTML += count
-    console.log(format)
+    //console.log(format)
   } else {
     console.log("No data available");
   }
@@ -182,7 +182,7 @@ var todaysquestion = "find-the-duplicate-number"
 function update(){
     var total = usernames.length
     var count = 0
-    var url = "http://localhost:8080/check"
+    var url = "/check"
     for (var i in usernames){
         console.log(usernames[i])
         var newurl = url+"/"+usernames[i]
