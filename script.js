@@ -134,7 +134,7 @@ var usernames = ["Mishal0404","user4713QR", "Nevin", "user8288gC", "mamathand98"
 
 
 
-var questions = ["find-the-duplicate-number", "running-sum-of-1d-array", "remove-element", "length-of-last-word", "valid-sudoku"/**,"sort-colors","move-zeroes","reverse-string","valid-palindrome-ii","valid-palindrome" */]
+var questions = ["find-the-duplicate-number", "running-sum-of-1d-array", "remove-element", "length-of-last-word", "valid-sudoku", "can-place-flowers", "permutations-ii"/**,"sort-colors","move-zeroes","reverse-string","valid-palindrome-ii","valid-palindrome" */]
 
 
 function arrayRemove(arr, value) {
