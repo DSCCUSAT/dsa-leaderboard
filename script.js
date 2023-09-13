@@ -125,7 +125,7 @@ var l = document.getElementById("board")
 
 
 
-var usernames = ["Mishal0404","user4713QR", "Nevin", "user8288gC", "mamathand98", "adijithsabu",
+var usernames = ["Mishal0404","user4713QR", "Nevin", "user8288gC", "mamathand98", "adijithsabu", "vaish02", 
  "hridyaharshan", "Nandana07", "Khushi6517", "barash1311", "khdas567", "Anagas", 
  "singhmuskan16", "aadarsh_ps", "Nirmal050", "vishnu13431", "ansafraees", "mihalpalakkal", "aditripathi1357", "prince3654", "Naveen_002", "Dheerajdileep", "Jr_NewT ", "EvlynEbichan ", "AioonT", "Heavenly_Ben", "Ivinej", "2getsandesh", "rimasid", "Sadhnan", "karthiksujith789", "resikeshramachandran05", "Nandakishor-KV", "Najah_1_", "_treesa_george_", "anumini", "MeticulousVision", "mgnm", "aakashpr", "rahulpradeep001", "abhay-krishna", "dikshas2911", "sivadasrajan", "safwanmshereef7", "shubhamk45", "the_royal_Abhi9s", "Sonakshi2125", "adijithsabu", "asciiindex", "Archa_2000", "abiirram", "fidhaa_2003", "hrk2575", "nikhilakumar2003", "aswinpradeepc ", "shivangi_chaturvedi", "iamdeepakpm282", "ashwath_john", "nandana___santhosh", "abhigaprasad", "avinashsinghlilotra", "eldhoabraham", "Harikri12", "Ruvais_9296", "Thrishakannan", "nabeelnazeer", "Akshaykr008", "rabeeh_ta", "kalpanaroy1712", "omamaashraf1913111046", "harshedabdulla", "dakshinard3010", "Sharonsabu12", "Athi123", "Abhishek", "priyanshu__21", "Aiswarya ", "Aiswarya_4528", "Aazim_Anish", "ri5hi", "niteshmishra171171171", "Abhinandgit", "ghanashyamvn", "mad_techy", "anzal", "Anzal", "Sree_Laxmi-123", "Narthana", "Sidharth", "ReVuZ", "SayakPaul", "20cs076praj ", "adarshbytes", "arjunvaradiyil203", "007aswinak007", "alimanhal", "Rebin03", "Sreesayanth", 
  "Adithyasankar_2003", "satyamsrivastava6871", "bhavyagirish3", "Nikitha_Ragesh", "sharathj116", "Merin_Biju", "Gokul211468", "lucifer_sama", "sonascaria", "mehul20", "ashwinsudheer", "resikeshramachandran05", "NazneenT03", "athulya_anilkumar", "Adil9645", "Anjimakp0", "hafeefapc2003", "ShriyaBala", "aswathy_linz", "Siddeque", "pejayalakshmi2003", "sweetcaro", "abhijith8176", "nlkguy", "sthejas87", "rabeeh6", "Creedz", "jeri", "Sreeragpv_1729", "johnsonjoyal87", "aloysiuspattath", "parvathi_manari", "Ankan85", "Mamatha ", "shadaataj", "nandusn", "mrudulmathews", "Amal-Thilakan", "str_dolly", "Malavika_CS", "gayathrireji25", "gthm", "gangamangalassery1", "kumarmukesh14", "Anandkumar_21633", "Him_123-", "thepywizard", "Dhanushpk_50", "Jeslinpjames", "MdSaquibBakhshi", "Abhibav75478", "Krishnanunni_21", "potatomalik", "ithban", "gowrilekshmis", "Abna_Iqbal", "Ashkab_C", "dka001", "anasvemmully", "ankitdocode", "Shilpa_2000", "anusabu", "Anagha_kr_____", "sindhupr2003", "amalragh", "Himna_01_K", "Gopika12", "aastha_das15", "steve_godly", "arnav27122002", "mariya-123", "Radhakrishna ", "Nandana_Pradeep", "AkshayRaj1107", "nazal", "AkshayRaj1107", "sweetchaos_sin", "Swathy_shabu", "dharsan", "gaurav_4107", "Arjun_chilambath", "Tejaas_21", "aditya773", "Tejaas_21", "adhidev02", "Uttam_001", "tanu2110", "danwand47", "Aadithya_krishnan", "sameerabdulla175", "shantanu_01", "bhagyajkumar1", "Thennal", "neha1610", "g3kul", "favas_tp", "thasnimp", "Aswinlalks", "shadinkvr2002", "sreedevmannarkkad", "binilvb1234", "fimil", "leahfrancis", "rizal28", "thamannasiraj27", 
@@ -134,7 +134,7 @@ var usernames = ["Mishal0404","user4713QR", "Nevin", "user8288gC", "mamathand98"
 
 
 
-var questions = ["find-the-duplicate-number", "running-sum-of-1d-array", "remove-element", "length-of-last-word", "valid-sudoku", "can-place-flowers", "permutations-ii"/**,"sort-colors","move-zeroes","reverse-string","valid-palindrome-ii","valid-palindrome" */]
+var questions = ["find-the-duplicate-number", "running-sum-of-1d-array", "remove-element", "length-of-last-word", "valid-sudoku", "can-place-flowers", "permutations-ii", "remove-duplicates-from-sorted-list", "middle-of-the-linked-list"/**,"sort-colors","move-zeroes","reverse-string","valid-palindrome-ii","valid-palindrome" */]
 
 
 function arrayRemove(arr, value) {
@@ -182,7 +182,7 @@ var todaysquestion = "find-the-duplicate-number"
 function update(){
     var total = usernames.length
     var count = 0
-    var url = "/check"
+    var url = "http://localhost:8080/check"
     for (var i in usernames){
         console.log(usernames[i])
         var newurl = url+"/"+usernames[i]
